@@ -1,16 +1,16 @@
 ﻿import React from "react";
-import { Preview } from '../Preview/Preview';
 
-export const Settings = () => {
+export const Settings = ({selectedTitle, setTitle}) => {
+    const changeName = (event) =>  {
+        setTitle(event.target.value)
+
+    }
     return (
         <section>
             <h2>Settings</h2>
             <div>
-                <form action="/action_page.php">
-                    <label for="username">Input Title: </label>
-                    <input type="text" id="username" name="username"></input>
-                    <input type="submit" value="Submit"></input>
-                </form>
+                <label for="name">Name: </label>
+                <input onChange={changeName} type="text" id="name" name="name" value={selectedTitle}/>
             </div>
         </section>
     );
